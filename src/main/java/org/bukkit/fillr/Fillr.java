@@ -14,6 +14,8 @@ public class Fillr extends JavaPlugin {
     public void onEnable() {}
 
     public void onLoad() {}
+    
+    public void onException(Throwable t) {}
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {

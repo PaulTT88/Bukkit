@@ -70,7 +70,12 @@ public interface Plugin extends CommandExecutor {
      * Called when this plugin is enabled
      */
     public void onEnable();
-
+    
+    /**
+     * Called when this plugin throws an exception
+     */
+    public void onException(Throwable t);
+    
     /**
      * Simple boolean if we can still nag to the logs about things
      * @return boolean whether we can nag

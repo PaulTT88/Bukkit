@@ -885,6 +885,7 @@ public class JavaPluginLoader implements PluginLoader {
                 jPlugin.setEnabled(true);
             } catch (Throwable ex) {
                 server.getLogger().log(Level.SEVERE, "Error occurred while enabling " + plugin.getDescription().getFullName() + " (Is it up to date?): " + ex.getMessage(), ex);
+                plugin.onException(ex);
             }
 
             // Perhaps abort here, rather than continue going, but as it stands,
@@ -906,6 +907,7 @@ public class JavaPluginLoader implements PluginLoader {
                 jPlugin.setEnabled(false);
             } catch (Throwable ex) {
                 server.getLogger().log(Level.SEVERE, "Error occurred while disabling " + plugin.getDescription().getFullName() + " (Is it up to date?): " + ex.getMessage(), ex);
+                plugin.onException(ex);
             }
 
             server.getPluginManager().callEvent(new PluginDisableEvent(plugin));
